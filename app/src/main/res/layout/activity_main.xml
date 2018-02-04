@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:textColor="#000000"
+    tools:context="com.example.android.quizbasicsofmusicnotation.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!--<EditText
+            android:id="@+id/name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Name"
+            android:inputType="textCapWords" />
+            -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Hello!\nHere is  some basic information about music notation.
+This is how notes are written in the treble clef:"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/Treble_Clef_Note_Names"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/treble_clef_note_names" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="And there is the bass clef:"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/Bass_Clef_Note_Names"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/bass_clef_note_names" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Now it's time for the quiz!\nLet's find out if you can recognize some notes :)"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary" />
+
+        <!--   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="This is..."
+        /> -->
+
+        <ImageView
+            android:id="@+id/Treble_Clef"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/treble_clef" />
+
+
+        <RadioGroup
+            android:id="@+id/Treble_Clef_r_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/Treble_Clef_treble_clef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:onClick="treble_clef_quiz"
+                android:text="treble clef" />
+
+
+            <RadioButton
+                android:id="@+id/Treble_Clef_bass_clef"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:onClick="treble_clef_quiz"
+                android:text="bass clef" />
+        </RadioGroup>
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary" />
+
+        <!--   <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="This is..."
+        /> -->
+
+        <ImageView
+            android:id="@+id/Bass_Clef"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/bass" />
+
+
+        <RadioGroup
+            android:id="@+id/Bass_Clef_r_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/trebleClefs_treble_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_quiz"
+                android:text="treble clef" />
+
+
+            <RadioButton
+                android:id="@+id/trebleClefs_bass_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_quiz"
+                android:text="bass clef" />
+        </RadioGroup>
+
+
+        <!-- end of clefs -->
+
+        <!-- treble a -->
+
+
+        <ImageView
+            android:id="@+id/treble_a"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/treble_a" />
+
+
+        <RadioGroup
+            android:id="@+id/Treble_Clef_a_RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/treble_a__a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_a_quiz"
+                android:text="A" />
+
+            <RadioButton
+                android:id="@+id/treble_a__h"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_a_quiz"
+                android:text="H" />
+
+            <RadioButton
+                android:id="@+id/treble_a__c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_a_quiz"
+                android:text="C" />
+
+
+            <RadioButton
+                android:id="@+id/treble_a__f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_a_quiz"
+                android:text="F" />
+        </RadioGroup>
+
+        <!-- treble f -->
+
+        <ImageView
+            android:id="@+id/treble_f"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/treble_f" />
+
+        <RadioGroup
+            android:id="@+id/Treble_Clef_f_RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/treble_f__e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_f_quiz"
+                android:text="E" />
+
+            <RadioButton
+                android:id="@+id/treble_f__f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_f_quiz"
+                android:text="F" />
+
+            <RadioButton
+                android:id="@+id/treble_f__d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_f_quiz"
+                android:text="D" />
+
+            <RadioButton
+                android:id="@+id/treble_f__b"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="treble_clef_f_quiz"
+                android:text="B" />
+
+        </RadioGroup>
+
+        <!-- bass g -->
+
+
+        <ImageView
+            android:id="@+id/bass_g"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/bass_g" />
+
+
+        <RadioGroup
+            android:id="@+id/Bass_Clef_g_RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+
+            <RadioButton
+                android:id="@+id/bass_g__g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_g_quiz"
+                android:text="G" />
+
+            <RadioButton
+                android:id="@+id/bass_g__e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_g_quiz"
+                android:text="E" />
+
+            <RadioButton
+                android:id="@+id/bass_g__f"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_g_quiz"
+                android:text="F" />
+
+
+            <RadioButton
+                android:id="@+id/bass_g__a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_g_quiz"
+                android:text="A" />
+
+        </RadioGroup>
+
+        <!-- bass d -->
+
+
+        <ImageView
+            android:id="@+id/bass_d"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/bass_d" />
+
+
+        <RadioGroup
+            android:id="@+id/Bass_Clef_d_RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/bass_d__c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_d_quiz"
+                android:text="C" />
+
+            <RadioButton
+                android:id="@+id/bass_d__g"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_d_quiz"
+                android:text="G" />
+
+            <RadioButton
+                android:id="@+id/bass_d__a"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_d_quiz"
+                android:text="A" />
+
+
+            <RadioButton
+                android:id="@+id/bass_d__d"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="bass_clef_d_quiz"
+                android:text="D" />
+
+        </RadioGroup>
+
+        <!-- several notes -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="Please, choose all correct answers."
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <!-- bass_aceg -->
+
+        <ImageView
+            android:id="@+id/bass_aceg"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/bass_aceg" />
+
+        <LinearLayout
+            android:id="@+id/bass_aceg_r_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp">
+
+            <CheckBox
+                android:id="@+id/bass_aceg_aceg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aceg" />
+
+            <CheckBox
+                android:id="@+id/bass_aceg_face"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="face"
+                android:textAllCaps="true" />
+
+            <CheckBox
+                android:id="@+id/bass_aceg_adbg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="adbg"
+                android:textAllCaps="true" />
+
+
+            <CheckBox
+                android:id="@+id/bass_aceg_aceg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aceg"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+        <!-- treble_egbdf -->
+
+        <ImageView
+            android:id="@+id/treble_egbdf"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/treble_egbdf" />
+
+        <LinearLayout
+            android:id="@+id/treble_egbdf_r_btns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingBottom="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="16dp">
+
+            <CheckBox
+                android:id="@+id/treble_egbdf_ed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ed"
+                android:textAllCaps="true" />
+
+            <CheckBox
+                android:id="@+id/treble_egbdf_ecfg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ecfg"
+                android:textAllCaps="true" />
+
+            <CheckBox
+                android:id="@+id/treble_egbdf_egbdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="egbdf"
+                android:textAllCaps="true" />
+
+
+            <CheckBox
+                android:id="@+id/treble_egbdf_gbdfa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="gbdfa"
+                android:textAllCaps="true" />
+
+        </LinearLayout>
+
+
+        <!-- sounds -->
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="we are almost done!\n
+            One of the most important skills for beginner musician is the ability to distinguish by\
+            ear between major and minor. \
+            Major sounds fun and minor sounds sad. Let's practice!\nWhat do you hear?"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <!-- major sound -->
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/start_major"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="play_major"
+                android:text="Play sound" />
+
+            <Button
+                android:id="@+id/pause_major"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="pause_major"
+                android:text="Pause sound" />
+
+            <Button
+                android:id="@+id/stop_major"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="stop_major"
+                android:text="Stop sound" />
+
+        </LinearLayout>
+
+
+        <RadioGroup
+            android:id="@+id/majorRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/major_minor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="major_quiz"
+                android:text="minor"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <RadioButton
+                android:id="@+id/major_major"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="major_quiz"
+                android:text="major"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+        </RadioGroup>
+
+
+        <!-- minor sound -->
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/start_minor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="play_minor"
+                android:text="Play sound" />
+
+            <Button
+                android:id="@+id/pause_minor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="pause_minor"
+                android:text="Pause sound" />
+
+            <Button
+                android:id="@+id/stop_minor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="stop_minor"
+                android:text="Stop sound" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/minorRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/minor_minor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="minor_quiz"
+                android:text="minor"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <RadioButton
+                android:id="@+id/minor_major"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="minor_quiz"
+                android:text="major"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Try to hear what's go first - minor or major:"
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+
+        <!--  major and minor sound-->
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/start_major_and_minor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="play_major_and_minor"
+                android:text="Play sound" />
+
+            <Button
+                android:id="@+id/pause_major_and_minor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="pause_major_and_minor"
+                android:text="Pause sound" />
+
+            <Button
+                android:id="@+id/stop_major_and_minor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="stop_major_and_minor"
+                android:text="Stop sound" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/major_and_minor_RadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <RadioButton
+                android:id="@+id/major_and_minor_major"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="major_and_minor_quiz"
+                android:text="major, minor"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+            <RadioButton
+                android:id="@+id/major_and_minor_minor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="major_and_minor_quiz"
+                android:text="minor, major"
+                android:textAlignment="center"
+                android:textAllCaps="true" />
+
+        </RadioGroup>
+
+
+        <EditText
+            android:id="@+id/name_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="15sp"
+            android:hint="Please, introduce yourself (optional)"
+            android:inputType="textCapWords" />
+
+        <Button
+            android:id="@+id/show_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:onClick="displayWhatIsChecked"
+            android:text="Show summary" />
+
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:onClick="resetWhatIsChecked"
+            android:text="reset" />
+
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#FF6D00"
+            android:textSize="15sp" />
+
+      <!--  android:textColor="#f39e77" -->
+
+
+        <Button
+            android:id="@+id/send_via_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:onClick="send_via_email"
+            android:text="send result via email"
+            android:textAllCaps="true" />
+
+
+    </LinearLayout>
+</ScrollView>
+
