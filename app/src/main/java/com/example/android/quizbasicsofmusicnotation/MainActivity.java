@@ -24,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
                             major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";
 
 
+    /*    String whatIsChecked =  getString(R.string.Summary), treble_clef_quiz_result = getString(R.string.Question_1_default), bass_clef_quiz_result = getString(R.string.Question_2_default),
+
+                            treble_clef_a_quiz_result = getString(R.string.Question_3_default), treble_clef_f_quiz_result = getString(R.string.Question_4_default),
+                            bass_clef_g_quiz_result = getString(R.string.Question_5_default), bass_clef_d_quiz_result = getString(R.string.Question_6_default),
+                            BassCheckBox = getString(R.string.Question_7_default),  TrebleCheckBox = getString(R.string.Question_8_default),
+                            major_quiz_result = getString(R.string.Question_9_default),  minor_quiz_result = getString(R.string.Question_10_default),  major_and_minor_quiz_result = getString(R.string.Question_11_default);*/
+
+
     byte points = 0, maxPoints = 12;
 
     boolean alreadyCounted = false;

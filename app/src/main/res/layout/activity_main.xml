@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
-    android:textColor="#000000"
+    android:background="@color/backRoundColor"
+    android:textColor="@color/textColor"
     tools:context="com.example.android.quizbasicsofmusicnotation.MainActivity">
 
     <LinearLayout
@@ -27,10 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Hello!\nHere is  some basic information about music notation.
-This is how notes are written in the treble clef:"
+            android:text="@string/introduction"
             android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textColor="@color/textColor" />
 
         <ImageView
             android:id="@+id/Treble_Clef_Note_Names"
@@ -42,15 +41,14 @@ This is how notes are written in the treble clef:"
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
             android:background="@color/colorPrimary" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="And there is the bass clef:"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            android:text="@string/introduction_bass_clef" />
 
         <ImageView
             android:id="@+id/Bass_Clef_Note_Names"
@@ -70,9 +68,7 @@ This is how notes are written in the treble clef:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Now it's time for the quiz!\nLet's find out if you can recognize some notes :)"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            android:text="@string/quiz_time" />
 
         <View
             android:layout_width="fill_parent"
@@ -109,7 +105,7 @@ This is how notes are written in the treble clef:"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="treble_clef_quiz"
-                android:text="treble clef" />
+                android:text="@string/treble_clef" />
 
 
             <RadioButton
@@ -119,7 +115,7 @@ This is how notes are written in the treble clef:"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:onClick="treble_clef_quiz"
-                android:text="bass clef" />
+                android:text="@string/bass_clef" />
         </RadioGroup>
 
 
@@ -157,7 +153,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="bass_clef_quiz"
-                android:text="treble clef" />
+                android:text="@string/treble_clef" />
 
 
             <RadioButton
@@ -166,7 +162,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="bass_clef_quiz"
-                android:text="bass clef" />
+                android:text="@string/bass_clef" />
         </RadioGroup>
 
 
@@ -390,9 +386,7 @@ This is how notes are written in the treble clef:"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="Please, choose all correct answers."
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            android:text="@string/pick_all_correct" />
 
         <!-- bass_aceg -->
 
@@ -515,10 +509,7 @@ This is how notes are written in the treble clef:"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="we are almost done!\n
-            One of the most important skills for beginner musician is the ability to distinguish by\
-            ear between major and minor. \
-            Major sounds fun and minor sounds sad. Let's practice!\nWhat do you hear?"
+            android:text="@string/almost_done_message"
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -537,7 +528,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="play_major"
-                android:text="Play sound" />
+                android:text="@string/play_sound" />
 
             <Button
                 android:id="@+id/pause_major"
@@ -545,7 +536,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="pause_major"
-                android:text="Pause sound" />
+                android:text="@string/pause_sound" />
 
             <Button
                 android:id="@+id/stop_major"
@@ -553,7 +544,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="stop_major"
-                android:text="Stop sound" />
+                android:text="@string/stop_sound" />
 
         </LinearLayout>
 
@@ -571,7 +562,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="major_quiz"
-                android:text="minor"
+                android:text="@string/minor"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
 
@@ -581,7 +572,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="major_quiz"
-                android:text="major"
+                android:text="@string/major"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
 
@@ -603,7 +594,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="play_minor"
-                android:text="Play sound" />
+                android:text="@string/play_sound" />
 
             <Button
                 android:id="@+id/pause_minor"
@@ -611,7 +602,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="pause_minor"
-                android:text="Pause sound" />
+                android:text="@string/pause_sound" />
 
             <Button
                 android:id="@+id/stop_minor"
@@ -619,7 +610,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="stop_minor"
-                android:text="Stop sound" />
+                android:text="@string/stop_sound" />
 
         </LinearLayout>
 
@@ -636,7 +627,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="minor_quiz"
-                android:text="minor"
+                android:text="@string/minor"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
 
@@ -646,7 +637,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="minor_quiz"
-                android:text="major"
+                android:text="@string/major"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
         </RadioGroup>
@@ -657,7 +648,7 @@ This is how notes are written in the treble clef:"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="Try to hear what's go first - minor or major:"
+            android:text="@string/what_go_firs"
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -677,7 +668,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="play_major_and_minor"
-                android:text="Play sound" />
+                android:text="@string/play_sound" />
 
             <Button
                 android:id="@+id/pause_major_and_minor"
@@ -685,7 +676,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="pause_major_and_minor"
-                android:text="Pause sound" />
+                android:text="@string/pause_sound" />
 
             <Button
                 android:id="@+id/stop_major_and_minor"
@@ -693,7 +684,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="stop_major_and_minor"
-                android:text="Stop sound" />
+                android:text="@string/stop_sound" />
 
         </LinearLayout>
 
@@ -710,7 +701,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="major_and_minor_quiz"
-                android:text="major, minor"
+                android:text="@string/major_minor"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
 
@@ -720,7 +711,7 @@ This is how notes are written in the treble clef:"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="major_and_minor_quiz"
-                android:text="minor, major"
+                android:text="@string/minor_major"
                 android:textAlignment="center"
                 android:textAllCaps="true" />
 
@@ -732,28 +723,42 @@ This is how notes are written in the treble clef:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textSize="15sp"
-            android:hint="Please, introduce yourself (optional)"
-            android:inputType="textCapWords" />
+            android:hint="@string/introduce_yourself"
+            android:inputType="textCapWords"
+            android:textSize="15sp" />
 
-        <Button
-            android:id="@+id/show_summary"
-            android:layout_width="wrap_content"
+        <LinearLayout
+
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:onClick="displayWhatIsChecked"
-            android:text="Show summary" />
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-        <Button
-            android:id="@+id/reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:onClick="resetWhatIsChecked"
-            android:text="reset" />
+            <Button
+                android:id="@+id/show_summary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="displayWhatIsChecked"
+                android:text="@string/show_summary" />
 
+            <Button
+                android:id="@+id/reset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="resetWhatIsChecked"
+                android:text="@string/reset"/>
+
+            <Button
+                android:id="@+id/send_via_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="send_via_email"
+                android:text="@string/email" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/result"
@@ -764,21 +769,10 @@ This is how notes are written in the treble clef:"
             android:gravity="center_horizontal"
             android:text=""
             android:textAlignment="center"
-            android:textColor="#FF6D00"
+            android:textColor="@color/colorForSummary"
             android:textSize="15sp" />
 
-      <!--  android:textColor="#f39e77" -->
-
-
-        <Button
-            android:id="@+id/send_via_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:onClick="send_via_email"
-            android:text="send result via email"
-            android:textAllCaps="true" />
+        <!--  android:textColor="#f39e77" -->
 
 
     </LinearLayout>
