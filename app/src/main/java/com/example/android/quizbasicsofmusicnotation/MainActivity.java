@@ -16,20 +16,21 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-/*    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
+    //hard coded string - works fine
+    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
 
                             treble_clef_a_quiz_result = "Question 3: not answered\n", treble_clef_f_quiz_result = "Question 4: not answered\n",
                             bass_clef_g_quiz_result = "Question 5: not answered\n", bass_clef_d_quiz_result = "Question 6: not answered\n",
                             BassCheckBox = "Question 7: not answered\n",  TrebleCheckBox = "Question 8: not answered\n",
-                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";*/
+                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";
 
-
-        String whatIsChecked =  getString(R.string.Summary), treble_clef_quiz_result = getString(R.string.Question_1_default), bass_clef_quiz_result = getString(R.string.Question_2_default),
+    // using strings.xml - doesn't work
+    /*    String whatIsChecked =  getString(R.string.Summary), treble_clef_quiz_result = getString(R.string.Question_1_default), bass_clef_quiz_result = getString(R.string.Question_2_default),
 
                             treble_clef_a_quiz_result = getString(R.string.Question_3_default), treble_clef_f_quiz_result = getString(R.string.Question_4_default),
                             bass_clef_g_quiz_result = getString(R.string.Question_5_default), bass_clef_d_quiz_result = getString(R.string.Question_6_default),
                             BassCheckBox = getString(R.string.Question_7_default),  TrebleCheckBox = getString(R.string.Question_8_default),
-                            major_quiz_result = getString(R.string.Question_9_default),  minor_quiz_result = getString(R.string.Question_10_default),  major_and_minor_quiz_result = getString(R.string.Question_11_default);
+                            major_quiz_result = getString(R.string.Question_9_default),  minor_quiz_result = getString(R.string.Question_10_default),  major_and_minor_quiz_result = getString(R.string.Question_11_default);*/
 
 
     byte points = 0, maxPoints = 12;
