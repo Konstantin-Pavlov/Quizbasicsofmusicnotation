@@ -16,20 +16,20 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
+/*    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
 
                             treble_clef_a_quiz_result = "Question 3: not answered\n", treble_clef_f_quiz_result = "Question 4: not answered\n",
                             bass_clef_g_quiz_result = "Question 5: not answered\n", bass_clef_d_quiz_result = "Question 6: not answered\n",
                             BassCheckBox = "Question 7: not answered\n",  TrebleCheckBox = "Question 8: not answered\n",
-                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";
+                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";*/
 
 
-    /*    String whatIsChecked =  getString(R.string.Summary), treble_clef_quiz_result = getString(R.string.Question_1_default), bass_clef_quiz_result = getString(R.string.Question_2_default),
+        String whatIsChecked =  getString(R.string.Summary), treble_clef_quiz_result = getString(R.string.Question_1_default), bass_clef_quiz_result = getString(R.string.Question_2_default),
 
                             treble_clef_a_quiz_result = getString(R.string.Question_3_default), treble_clef_f_quiz_result = getString(R.string.Question_4_default),
                             bass_clef_g_quiz_result = getString(R.string.Question_5_default), bass_clef_d_quiz_result = getString(R.string.Question_6_default),
                             BassCheckBox = getString(R.string.Question_7_default),  TrebleCheckBox = getString(R.string.Question_8_default),
-                            major_quiz_result = getString(R.string.Question_9_default),  minor_quiz_result = getString(R.string.Question_10_default),  major_and_minor_quiz_result = getString(R.string.Question_11_default);*/
+                            major_quiz_result = getString(R.string.Question_9_default),  minor_quiz_result = getString(R.string.Question_10_default),  major_and_minor_quiz_result = getString(R.string.Question_11_default);
 
 
     byte points = 0, maxPoints = 12;
@@ -39,6 +39,29 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mPlayer;
     MediaPlayer mPlayerMinor;
     MediaPlayer mPlayerMajorAndMinor;
+
+/*    CheckBox bass_aceg_aceg2_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg2);
+    CheckBox bass_aceg_face_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_face);
+    CheckBox bass_aceg_adbg_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_adbg);
+
+    CheckBox treble_egbdf_egbdf_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_egbdf);
+    CheckBox treble_egbdf_ecfg_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_ecfg);
+    CheckBox treble_egbdf_ed_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_ed);
+    CheckBox treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);*/
+
+    CheckBox bass_aceg_aceg_CheckBox;
+    CheckBox bass_aceg_aceg2_CheckBox;
+    CheckBox bass_aceg_face_CheckBox;
+    CheckBox bass_aceg_adbg_CheckBox;
+
+    CheckBox treble_egbdf_egbdf_CheckBox;
+    CheckBox treble_egbdf_ecfg_CheckBox;
+    CheckBox treble_egbdf_ed_CheckBox;
+    CheckBox treble_egbdf_gbdfa_CheckBox;
+
+    EditText nameField;
+
+    TextView result;
 
     //RadioGroup radioGroup;
     //RadioGroup radioGroup_Treble_Clef_btns = (RadioGroup) findViewById(R.id.Treble_Clef_btns);
@@ -96,6 +119,22 @@ public class MainActivity extends AppCompatActivity {
 
         pauseButtonMajorAndMinor.setEnabled(false);
         stopButtonMajorAndMinor.setEnabled(false);
+
+        bass_aceg_aceg_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_aceg);
+        bass_aceg_aceg2_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg2);
+        bass_aceg_face_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_face);
+        bass_aceg_adbg_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_adbg);
+
+        treble_egbdf_egbdf_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_egbdf);
+        treble_egbdf_ecfg_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_ecfg);
+        treble_egbdf_ed_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_ed);
+        treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);
+
+        nameField = (EditText)findViewById(R.id.name_field);
+
+        result = (TextView) findViewById(R.id.result);
+
+
     }
 
     /* ////////////////////////////// */
@@ -271,7 +310,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void collectDataFromCheckBoxes(){
-        CheckBox bass_aceg_aceg_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg);
+/*        CheckBox bass_aceg_aceg_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg);
         CheckBox bass_aceg_aceg2_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg2);
         CheckBox bass_aceg_face_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_face);
         CheckBox bass_aceg_adbg_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_adbg);
@@ -279,7 +318,7 @@ public class MainActivity extends AppCompatActivity {
         CheckBox treble_egbdf_egbdf_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_egbdf);
         CheckBox treble_egbdf_ecfg_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_ecfg);
         CheckBox treble_egbdf_ed_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_ed);
-        CheckBox treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);
+        CheckBox treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);*/
 
         boolean has_Bass_aceg_aceg_CheckBox = bass_aceg_aceg_CheckBox.isChecked(); //ok
         boolean has_Bass_aceg_aceg2_CheckBox = bass_aceg_aceg2_CheckBox.isChecked(); //ok
@@ -515,7 +554,7 @@ public class MainActivity extends AppCompatActivity {
     /* ///////////end of sound code//////////////// */
 
     public String getName(){
-        EditText nameField = (EditText)findViewById(R.id.name_field);
+        //EditText nameField = (EditText)findViewById(R.id.name_field);
         String name = nameField.getText().toString(); //return editable object, then method toString() makes it String type (chaining method calls)
         return name;
     }
@@ -572,7 +611,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void display(String s) {
-        TextView result = (TextView) findViewById(R.id.result);
+        //TextView result = (TextView) findViewById(R.id.result);
         result.setText(String.valueOf(s));
     }
 
