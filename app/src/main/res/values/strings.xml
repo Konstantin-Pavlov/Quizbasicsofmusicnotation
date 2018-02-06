@@ -24,6 +24,7 @@
 
     //java
     <string name="Summary">Summary:\n</string>
+    <string name="Question">Question</string>
     <string name="Question_1_default">Question 1: not answered\n</string>
     <string name="Question_2_default">Question 2: not answered\n</string>
     <string name="Question_3_default">Question 3: not answered\n</string>
@@ -35,7 +36,12 @@
     <string name="Question_9_default">Question 9: not answered\n</string>
     <string name="Question_10_default">Question 10: not answered\n</string>
     <string name="Question_11_default">Question 11: not answered\n</string>
-    <string name="Question">Question </string>
+
+    <string name="Name">Name: </string>
+    <string name="userPoints">Points: </string>
+    <string name="MaxPoints">\nMaxPoints: </string>
+    <string name="mailto">mailto</string>
+    <string name="emailSubject">Music Notation Quiz results for </string>
 
 
 </resources>

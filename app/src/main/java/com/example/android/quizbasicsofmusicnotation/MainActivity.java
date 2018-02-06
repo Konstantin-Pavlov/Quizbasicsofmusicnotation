@@ -17,20 +17,38 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     //hard coded string - works fine
-    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
+
+    String
+            question,
+            whatIsChecked,
+            treble_clef_quiz_result, bass_clef_quiz_result,
+            treble_clef_a_quiz_result, treble_clef_f_quiz_result ,
+            bass_clef_g_quiz_result , bass_clef_d_quiz_result,
+            BassCheckBox , TrebleCheckBox ,
+            major_quiz_result , minor_quiz_result, major_and_minor_quiz_result,
+            name, userPoints, MaxQuizPoints,
+            mailTo, emailSubject;
+
+/*    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
 
                             treble_clef_a_quiz_result = "Question 3: not answered\n", treble_clef_f_quiz_result = "Question 4: not answered\n",
                             bass_clef_g_quiz_result = "Question 5: not answered\n", bass_clef_d_quiz_result = "Question 6: not answered\n",
                             BassCheckBox = "Question 7: not answered\n",  TrebleCheckBox = "Question 8: not answered\n",
-                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";
+                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";*/
 
     // using strings.xml - doesn't work
-    /*    String whatIsChecked =  getString(R.string.Summary), treble_clef_quiz_result = getString(R.string.Question_1_default), bass_clef_quiz_result = getString(R.string.Question_2_default),
-
-                            treble_clef_a_quiz_result = getString(R.string.Question_3_default), treble_clef_f_quiz_result = getString(R.string.Question_4_default),
-                            bass_clef_g_quiz_result = getString(R.string.Question_5_default), bass_clef_d_quiz_result = getString(R.string.Question_6_default),
-                            BassCheckBox = getString(R.string.Question_7_default),  TrebleCheckBox = getString(R.string.Question_8_default),
-                            major_quiz_result = getString(R.string.Question_9_default),  minor_quiz_result = getString(R.string.Question_10_default),  major_and_minor_quiz_result = getString(R.string.Question_11_default);*/
+    /*    String whatIsChecked =  getString(R.string.Summary),
+    treble_clef_quiz_result = getString(R.string.Question_1_default),
+    bass_clef_quiz_result = getString(R.string.Question_2_default),
+                           treble_clef_a_quiz_result = getString(R.string.Question_3_default),
+                            treble_clef_f_quiz_result = getString(R.string.Question_4_default),
+                            bass_clef_g_quiz_result = getString(R.string.Question_5_default),
+                             bass_clef_d_quiz_result = getString(R.string.Question_6_default),
+                            BassCheckBox = getString(R.string.Question_7_default),
+                            TrebleCheckBox = getString(R.string.Question_8_default),
+                            major_quiz_result = getString(R.string.Question_9_default),
+                             minor_quiz_result = getString(R.string.Question_10_default),
+                              major_and_minor_quiz_result = getString(R.string.Question_11_default);*/
 
 
     byte points = 0, maxPoints = 12;
@@ -73,6 +91,31 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        question = getString(R.string.Question);
+
+        whatIsChecked =  getString(R.string.Summary);
+        treble_clef_quiz_result = getString(R.string.Question_1_default) ;
+        bass_clef_quiz_result = getString(R.string.Question_2_default) ;
+        treble_clef_a_quiz_result = getString(R.string.Question_3_default);
+        treble_clef_f_quiz_result = getString(R.string.Question_4_default);
+        bass_clef_d_quiz_result = getString(R.string.Question_6_default);
+        BassCheckBox = getString(R.string.Question_7_default);
+        TrebleCheckBox = getString(R.string.Question_8_default);
+        major_quiz_result = getString(R.string.Question_9_default) ;
+        minor_quiz_result = getString(R.string.Question_10_default);
+        major_and_minor_quiz_result = getString(R.string.Question_11_default);
+
+        name = getString(R.string.Name);
+        userPoints = getString(R.string.userPoints);
+        MaxQuizPoints = getString(R.string.MaxPoints);
+
+        mailTo = getString(R.string.mailto);
+        emailSubject = getString(R.string.emailSubject);
+
+
+
 
         mPlayer=MediaPlayer.create(this, R.raw.major_sound);
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -157,13 +200,13 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.Treble_Clef_treble_clef:
                 if (checked){
-                    treble_clef_quiz_result = "Question 1: 1/1\n";
+                    treble_clef_quiz_result = question + "1: 1/1\n";
                     points++;
                 } break;
 
             case R.id.Treble_Clef_bass_clef:
                 if (checked){
-                    treble_clef_quiz_result = "Question 1: 0/1\n";
+                    treble_clef_quiz_result = question + "1: 0/1\n";
                 } break;
         }
     }
@@ -177,12 +220,12 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.trebleClefs_treble_btn:
                 if (checked){
-                    bass_clef_quiz_result = "Question 2: 0/1\n";
+                    bass_clef_quiz_result = question + "2: 0/1\n";
                 } break;
 
             case R.id.trebleClefs_bass_btn:
                 if (checked){
-                    bass_clef_quiz_result = "Question 2: 1/1\n";
+                    bass_clef_quiz_result = question + "2: 1/1\n";
                     points++;
                 } break;
         }
@@ -197,24 +240,24 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.treble_a__a:
                 if (checked){
-                    treble_clef_a_quiz_result = "Question 3: 1/1\n";
+                    treble_clef_a_quiz_result = question + "3: 1/1\n";
                     points++;
                 } break;
 
             case R.id.treble_a__c:
                 if (checked){
-                    treble_clef_a_quiz_result = "Question 3: 0/1\n";
+                    treble_clef_a_quiz_result = question + "3: 0/1\n";
                 } break;
 
             case R.id.treble_a__f:
                 if (checked){
-                    treble_clef_a_quiz_result = "Question 3: 0/1\n";
+                    treble_clef_a_quiz_result = question + "3: 0/1\n";
 
                 } break;
 
             case R.id.treble_a__h:
                 if (checked){
-                    treble_clef_a_quiz_result = "Question 3: 0/1\n";
+                    treble_clef_a_quiz_result = question + "3: 0/1\n";
                 } break;
         }
     }
@@ -228,23 +271,23 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.treble_f__f:
                 if (checked){
-                    treble_clef_f_quiz_result = "Question 4: 1/1\n";
+                    treble_clef_f_quiz_result = question + "4: 1/1\n";
                     points++;
                 } break;
 
             case R.id.treble_f__e:
                 if (checked){
-                    treble_clef_f_quiz_result = "Question 4: 0/1\n";
+                    treble_clef_f_quiz_result = question + "4: 0/1\n";
                 } break;
 
             case R.id.treble_f__b:
                 if (checked){
-                    treble_clef_f_quiz_result = "Question 4: 0/1\n";
+                    treble_clef_f_quiz_result = question + "4: 0/1\n";
                 } break;
 
             case R.id.treble_f__d:
                 if (checked){
-                    treble_clef_f_quiz_result = "Question 4: 0/1\n";
+                    treble_clef_f_quiz_result = question + "4: 0/1\n";
                 } break;
         }
     }
@@ -258,23 +301,23 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.bass_g__g:
                 if (checked){
-                    bass_clef_g_quiz_result = "Question 5: 1/1\n";
+                    bass_clef_g_quiz_result = question + "5: 1/1\n";
                     points++;
                 } break;
 
             case R.id.bass_g__a:
                 if (checked){
-                    bass_clef_g_quiz_result = "Question 5: 0/1\n";
+                    bass_clef_g_quiz_result = question + "5: 0/1\n";
                 } break;
 
             case R.id.bass_g__e:
                 if (checked){
-                    bass_clef_g_quiz_result = "Question 5: 0/1\n";
+                    bass_clef_g_quiz_result = question + "5: 0/1\n";
                 } break;
 
             case R.id.bass_g__f:
                 if (checked){
-                    bass_clef_g_quiz_result = "Question 5: 0/1\n";
+                    bass_clef_g_quiz_result = question + "5: 0/1\n";
                 } break;
         }
     }
@@ -288,23 +331,23 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.bass_d__d:
                 if (checked){
-                    bass_clef_d_quiz_result = "Question 6: 1/1\n";
+                    bass_clef_d_quiz_result = question + "6: 1/1\n";
                     points++;
                 } break;
 
             case R.id.bass_d__a:
                 if (checked){
-                    bass_clef_d_quiz_result = "Question 6: 0/1\n";
+                    bass_clef_d_quiz_result = question + "6: 0/1\n";
                 } break;
 
             case R.id.bass_d__c:
                 if (checked){
-                    bass_clef_d_quiz_result = "Question 6: 0/1\n";
+                    bass_clef_d_quiz_result = question + "6: 0/1\n";
                 } break;
 
             case R.id.bass_d__g:
                 if (checked){
-                    bass_clef_d_quiz_result = "Question 6: 0/1\n";
+                    bass_clef_d_quiz_result = question + "6: 0/1\n";
                 } break;
         }
     }
@@ -336,18 +379,18 @@ public class MainActivity extends AppCompatActivity {
 
 
             if ( has_bass_aceg_face_CheckBox || has_bass_aceg_adbg_CheckBox )
-                BassCheckBox = "Question 7: 0/2\n";
+                BassCheckBox = question + "7: 0/2\n";
             else {
-                BassCheckBox = has_Bass_aceg_aceg_CheckBox || has_Bass_aceg_aceg2_CheckBox ? "Question 7: 1/2\n": "Question 7: 0/2\n";
+                BassCheckBox = has_Bass_aceg_aceg_CheckBox || has_Bass_aceg_aceg2_CheckBox ? question + "7: 1/2\n": question + "7: 0/2\n";
                 points += ( (has_Bass_aceg_aceg_CheckBox ? 1 : 0) + (has_Bass_aceg_aceg2_CheckBox ? 1 : 0) );
                 if (has_Bass_aceg_aceg_CheckBox && has_Bass_aceg_aceg2_CheckBox)
-                    BassCheckBox = "Question 7: 2/2\n";
+                    BassCheckBox = question + "7: 2/2\n";
             }
 
             if ( has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox || has_Treble_egbdf_gbdfa_CheckBox )
-                TrebleCheckBox =  "Question 8: 0/1\n";
+                TrebleCheckBox =  question + "8: 0/1\n";
             else {
-                TrebleCheckBox = has_Treble_egbdf_egbdf_CheckBox ? "Question 8: 1/1\n": "Question 8: 0/1\n";
+                TrebleCheckBox = has_Treble_egbdf_egbdf_CheckBox ? question + "8: 1/1\n": question + "8: 0/1\n";
                 points +=  ( has_Treble_egbdf_egbdf_CheckBox ? 1 : 0 );
             }
 
@@ -369,13 +412,13 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.major_major:
                 if (checked){
-                    major_quiz_result = "Question 9: 1/1\n";
+                    major_quiz_result = question + "9: 1/1\n";
                     points++;
                 } break;
 
             case R.id.major_minor:
                 if (checked){
-                    major_quiz_result = "Question 9: 0/1\n";
+                    major_quiz_result = question + "9: 0/1\n";
                 } break;
         }
     }
@@ -389,13 +432,13 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.minor_minor:
                 if (checked){
-                    minor_quiz_result = "Question 10: 1/1\n";
+                    minor_quiz_result = question + "10: 1/1\n";
                     points++;
                 } break;
 
             case R.id.minor_major:
                 if (checked){
-                    minor_quiz_result = "Question 10: 0/1\n";
+                    minor_quiz_result = question + "10: 0/1\n";
                 } break;
         }
     }
@@ -409,13 +452,13 @@ public class MainActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.major_and_minor_major:
                 if (checked){
-                    major_and_minor_quiz_result = "Question 11: 1/1\n";
+                    major_and_minor_quiz_result = question + "11: 1/1\n";
                     points++;
                 } break;
 
             case R.id.major_and_minor_minor:
                 if (checked){
-                    major_and_minor_quiz_result = "Question 11: 0/1\n";
+                    major_and_minor_quiz_result = question + "11: 0/1\n";
                 } break;
         }
     }
@@ -572,11 +615,11 @@ public class MainActivity extends AppCompatActivity {
             String formattedPercentage = String.format("%.2f", percentage);
             //String formattedDouble = new DecimalFormat("#0.00").format(0.1321231);
 
-            whatIsChecked += ("Name: " + getName() + "\n\n" + treble_clef_quiz_result + bass_clef_quiz_result +
+            whatIsChecked += (name + getName() + "\n\n" + treble_clef_quiz_result + bass_clef_quiz_result +
                     treble_clef_a_quiz_result + treble_clef_f_quiz_result + bass_clef_g_quiz_result + bass_clef_d_quiz_result +
                     BassCheckBox + TrebleCheckBox +
                     major_quiz_result + minor_quiz_result + major_and_minor_quiz_result +
-                    "Points: " + points + "\nMax points = " + maxPoints + "\n" + formattedPercentage + "%");
+                    userPoints + points + MaxQuizPoints + maxPoints + "\n" + formattedPercentage + "%");
             alreadyCounted = true;
         }
 
@@ -599,9 +642,9 @@ public class MainActivity extends AppCompatActivity {
     public void send_via_email (View v){
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.setData(Uri.parse(mailTo)); // only email apps should handle this
         //intent.putExtra(Intent.EXTRA_EMAIL, addresses); //addresses - a String[] holding e-mail addresses that should be delivered to.
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Music Notation Quiz results for " + getName()); //email SUBJECT
+        intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject + getName()); //email SUBJECT
         intent.putExtra(Intent.EXTRA_TEXT, summary()); //email body
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
@@ -618,23 +661,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetAll(){
         //whatIsChecked = "";
-        whatIsChecked =  "";
+        //whatIsChecked =  "";
 
 /*        treble_clef_quiz_result = bass_clef_quiz_result =
         treble_clef_a_quiz_result = treble_clef_f_quiz_result = bass_clef_g_quiz_result = bass_clef_d_quiz_result =
         BassCheckBox = TrebleCheckBox = "";*/
 
-        treble_clef_quiz_result = "Question 1: not answered\n";
-        bass_clef_quiz_result = "Question 2: not answered\n";
-        treble_clef_a_quiz_result = "Question 3: not answered\n";
-        treble_clef_f_quiz_result = "Question 4: not answered\n";
-        bass_clef_g_quiz_result = "Question 5: not answered\n";
-        bass_clef_d_quiz_result = "Question 6: not answered\n";
-        BassCheckBox = "Question 7: not answered\n";
-        TrebleCheckBox = "Question 8: not answered\n";
-        major_quiz_result = "Question 9: not answered\n";
-        minor_quiz_result = "Question 10: not answered\n";
-        major_and_minor_quiz_result = "Question 11: not answered\n";
+        whatIsChecked =  getString(R.string.Summary);
+        treble_clef_quiz_result = getString(R.string.Question_1_default) ;
+        bass_clef_quiz_result = getString(R.string.Question_2_default) ;
+        treble_clef_a_quiz_result = getString(R.string.Question_3_default);
+        treble_clef_f_quiz_result = getString(R.string.Question_4_default);
+        bass_clef_d_quiz_result = getString(R.string.Question_6_default);
+        BassCheckBox = getString(R.string.Question_7_default);
+        TrebleCheckBox = getString(R.string.Question_8_default);
+        major_quiz_result = getString(R.string.Question_9_default) ;
+        minor_quiz_result = getString(R.string.Question_10_default);
+        major_and_minor_quiz_result = getString(R.string.Question_11_default);
 
         points = 0;
 
