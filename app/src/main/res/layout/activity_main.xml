@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/padding">
 
         <!--<EditText
             android:id="@+id/name_field"
@@ -96,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/Treble_Clef_treble_clef"
@@ -145,7 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/trebleClefs_treble_btn"
@@ -183,7 +183,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/treble_a__a"
@@ -232,7 +232,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/treble_f__e"
@@ -283,7 +283,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
 
             <RadioButton
@@ -336,7 +336,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/bass_d__c"
@@ -554,7 +554,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/major_minor"
@@ -619,7 +619,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/minor_minor"
@@ -660,7 +660,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <Button
                 android:id="@+id/start_major_and_minor"
@@ -693,7 +693,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <RadioButton
                 android:id="@+id/major_and_minor_major"
@@ -732,7 +732,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:padding="@dimen/padding">
 
             <Button
                 android:id="@+id/show_summary"
@@ -770,7 +770,7 @@
             android:text=""
             android:textAlignment="center"
             android:textColor="@color/colorForSummary"
-            android:textSize="15sp" />
+            android:textSize="@dimen/summary_text_size" />
 
         <!--  android:textColor="#f39e77" -->
 
