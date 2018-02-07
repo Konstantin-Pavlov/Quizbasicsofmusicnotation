@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //variables declaration
         question = getString(R.string.Question);
 
         whatIsChecked =  getString(R.string.Summary);
