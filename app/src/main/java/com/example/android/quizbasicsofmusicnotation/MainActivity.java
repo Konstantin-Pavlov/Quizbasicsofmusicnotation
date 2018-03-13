@@ -16,8 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //hard coded string - works fine
-
+    //declaration of string variables
     String
             question,
             whatIsChecked,
@@ -29,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
             name, userPoints, MaxQuizPoints,
             mailTo, emailSubject;
 
+      //hard coded strings
 /*    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
 
                             treble_clef_a_quiz_result = "Question 3: not answered\n", treble_clef_f_quiz_result = "Question 4: not answered\n",
@@ -36,19 +36,6 @@ public class MainActivity extends AppCompatActivity {
                             BassCheckBox = "Question 7: not answered\n",  TrebleCheckBox = "Question 8: not answered\n",
                             major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";*/
 
-    // using strings.xml - doesn't work
-    /*    String whatIsChecked =  getString(R.string.Summary),
-    treble_clef_quiz_result = getString(R.string.Question_1_default),
-    bass_clef_quiz_result = getString(R.string.Question_2_default),
-                           treble_clef_a_quiz_result = getString(R.string.Question_3_default),
-                            treble_clef_f_quiz_result = getString(R.string.Question_4_default),
-                            bass_clef_g_quiz_result = getString(R.string.Question_5_default),
-                             bass_clef_d_quiz_result = getString(R.string.Question_6_default),
-                            BassCheckBox = getString(R.string.Question_7_default),
-                            TrebleCheckBox = getString(R.string.Question_8_default),
-                            major_quiz_result = getString(R.string.Question_9_default),
-                             minor_quiz_result = getString(R.string.Question_10_default),
-                              major_and_minor_quiz_result = getString(R.string.Question_11_default);*/
 
 
     byte points = 0, maxPoints = 12;
@@ -58,15 +45,6 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mPlayer;
     MediaPlayer mPlayerMinor;
     MediaPlayer mPlayerMajorAndMinor;
-
-/*    CheckBox bass_aceg_aceg2_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg2);
-    CheckBox bass_aceg_face_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_face);
-    CheckBox bass_aceg_adbg_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_adbg);
-
-    CheckBox treble_egbdf_egbdf_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_egbdf);
-    CheckBox treble_egbdf_ecfg_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_ecfg);
-    CheckBox treble_egbdf_ed_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_ed);
-    CheckBox treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);*/
 
     CheckBox bass_aceg_aceg_CheckBox;
     CheckBox bass_aceg_aceg2_CheckBox;
@@ -94,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
         //variables declaration
         question = getString(R.string.Question);
-
         whatIsChecked =  getString(R.string.Summary);
         treble_clef_quiz_result = getString(R.string.Question_1_default) ;
         bass_clef_quiz_result = getString(R.string.Question_2_default) ;
@@ -111,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
         userPoints = getString(R.string.userPoints);
         MaxQuizPoints = getString(R.string.MaxPoints);
 
-        mailTo = getString(R.string.mailto);
-        emailSubject = getString(R.string.emailSubject);
+        //mailTo = getString(R.string.mailto);
+        //emailSubject = getString(R.string.emailSubject);
 
 
 
@@ -184,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
     /* ////////////////////////////// */
 
 /*    public void onClick(View view) {
-        // очистить все переключатели
+        // clear all  radio buttons
         radioGroup.clearCheck();
     }
 */
@@ -599,8 +576,7 @@ public class MainActivity extends AppCompatActivity {
 
     public String getName(){
         //EditText nameField = (EditText)findViewById(R.id.name_field);
-        String name = nameField.getText().toString(); //return editable object, then method toString() makes it String type (chaining method calls)
-        return name;
+        return nameField.getText().toString(); //return editable object, then method toString() makes it String type (chaining method calls);
     }
 
 
@@ -640,17 +616,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void send_via_email (View v){
+        //String name = getName();
+        //Music Notation Quiz results for
+        //mailto
 
+        //open mail
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse(mailTo)); // only email apps should handle this
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
         //intent.putExtra(Intent.EXTRA_EMAIL, addresses); //addresses - a String[] holding e-mail addresses that should be delivered to.
-        intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject + getName()); //email SUBJECT
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Music Notation Quiz results for " + getName()); //email SUBJECT
         intent.putExtra(Intent.EXTRA_TEXT, summary()); //email body
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-
-        //resetAll();
     }
 
 
