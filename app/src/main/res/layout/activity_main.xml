@@ -15,15 +15,7 @@
         android:orientation="vertical"
         android:padding="@dimen/padding">
 
-        <!--
-        <EditText
-            android:id="@+id/name_field"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Name"
-            android:inputType="textCapWords" />
-        -->
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,20 +70,11 @@
             android:layout_marginBottom="16dp"
             android:background="@color/colorPrimary" />
 
-        <!--   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:text="This is..."
-        /> -->
-
         <ImageView
             android:id="@+id/Treble_Clef"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:src="@drawable/treble_clef" />
-
 
         <RadioGroup
             android:id="@+id/Treble_Clef_r_btns"
@@ -121,19 +104,21 @@
         </RadioGroup>
 
 
+
+        <EditText
+            android:id="@+id/extra_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="@string/extra_task"
+            android:inputType="textCapWords"
+            android:textSize="12sp" />
+
         <View
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="16dp"
             android:background="@color/colorPrimary" />
-
-        <!--   <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:gravity="center"
-        android:text="This is..."
-        /> -->
 
         <ImageView
             android:id="@+id/Bass_Clef"
@@ -488,12 +473,11 @@
 
 
             <CheckBox
-                android:id="@+id/treble_egbdf_gbdfa"
+                android:id="@+id/treble_egbdf_egbdf1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="gbdfa"
-                android:textAllCaps="true" />
+                android:text="egbdf"/>
 
         </LinearLayout>
 
@@ -772,9 +756,6 @@
             android:textAlignment="center"
             android:textColor="@color/colorForSummary"
             android:textSize="@dimen/summary_text_size" />
-
-        <!--  android:textColor="#f39e77" -->
-
 
     </LinearLayout>
 </ScrollView>

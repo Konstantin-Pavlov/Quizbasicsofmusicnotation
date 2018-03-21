@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     String
             question,
             whatIsChecked,
+            extraPoint,
             treble_clef_quiz_result, bass_clef_quiz_result,
             treble_clef_a_quiz_result, treble_clef_f_quiz_result ,
             bass_clef_g_quiz_result , bass_clef_d_quiz_result,
@@ -28,17 +29,8 @@ public class MainActivity extends AppCompatActivity {
             name, userPoints, MaxQuizPoints,
             mailTo, emailSubject;
 
-      //hard coded strings
-/*    String whatIsChecked =  "Summary:\n", treble_clef_quiz_result = "Question 1: not answered\n", bass_clef_quiz_result = "Question 2: not answered\n",
-
-                            treble_clef_a_quiz_result = "Question 3: not answered\n", treble_clef_f_quiz_result = "Question 4: not answered\n",
-                            bass_clef_g_quiz_result = "Question 5: not answered\n", bass_clef_d_quiz_result = "Question 6: not answered\n",
-                            BassCheckBox = "Question 7: not answered\n",  TrebleCheckBox = "Question 8: not answered\n",
-                            major_quiz_result = "Question 9: not answered\n",  minor_quiz_result = "Question 10: not answered\n",  major_and_minor_quiz_result = "Question 11: not answered\n";*/
-
-
-
-    byte points = 0, maxPoints = 12;
+    byte points = 0;
+    byte maxPoints = 14;
 
     boolean alreadyCounted = false;
 
@@ -54,14 +46,12 @@ public class MainActivity extends AppCompatActivity {
     CheckBox treble_egbdf_egbdf_CheckBox;
     CheckBox treble_egbdf_ecfg_CheckBox;
     CheckBox treble_egbdf_ed_CheckBox;
-    CheckBox treble_egbdf_gbdfa_CheckBox;
+    CheckBox treble_egbdf_egbdf1_CheckBox;
 
     EditText nameField;
+    EditText extraTask;
 
     TextView result;
-
-    //RadioGroup radioGroup;
-    //RadioGroup radioGroup_Treble_Clef_btns = (RadioGroup) findViewById(R.id.Treble_Clef_btns);
 
     Button startButton, pauseButton, stopButton, startButtonMinor, pauseButtonMinor, stopButtonMinor, startButtonMajorAndMinor, pauseButtonMajorAndMinor, stopButtonMajorAndMinor;
 
@@ -73,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         //variables declaration
         question = getString(R.string.Question);
         whatIsChecked =  getString(R.string.Summary);
+        extraPoint = getString(R.string.extra_point);
         treble_clef_quiz_result = getString(R.string.Question_1_default) ;
         bass_clef_quiz_result = getString(R.string.Question_2_default) ;
         treble_clef_a_quiz_result = getString(R.string.Question_3_default);
@@ -149,24 +140,18 @@ public class MainActivity extends AppCompatActivity {
         treble_egbdf_egbdf_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_egbdf);
         treble_egbdf_ecfg_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_ecfg);
         treble_egbdf_ed_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_ed);
-        treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);
+        treble_egbdf_egbdf1_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_egbdf1);
 
         nameField = (EditText)findViewById(R.id.name_field);
+        extraTask = (EditText)findViewById(R.id.extra_task);
 
         result = (TextView) findViewById(R.id.result);
 
 
     }
 
-    /* ////////////////////////////// */
 
-/*    public void onClick(View view) {
-        // clear all  radio buttons
-        radioGroup.clearCheck();
-    }
-*/
-
- /* ////////////////////////////// */
+ /* /////////////   Begin of the methods   ///////////////// */
 
 
     public void treble_clef_quiz(View view) {
@@ -331,15 +316,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void collectDataFromCheckBoxes(){
-/*        CheckBox bass_aceg_aceg_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg);
-        CheckBox bass_aceg_aceg2_CheckBox  = (CheckBox) findViewById(R.id.bass_aceg_aceg2);
-        CheckBox bass_aceg_face_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_face);
-        CheckBox bass_aceg_adbg_CheckBox = (CheckBox) findViewById(R.id.bass_aceg_adbg);
-
-        CheckBox treble_egbdf_egbdf_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_egbdf);
-        CheckBox treble_egbdf_ecfg_CheckBox  = (CheckBox) findViewById(R.id.treble_egbdf_ecfg);
-        CheckBox treble_egbdf_ed_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_ed);
-        CheckBox treble_egbdf_gbdfa_CheckBox = (CheckBox) findViewById(R.id.treble_egbdf_gbdfa);*/
 
         boolean has_Bass_aceg_aceg_CheckBox = bass_aceg_aceg_CheckBox.isChecked(); //ok
         boolean has_Bass_aceg_aceg2_CheckBox = bass_aceg_aceg2_CheckBox.isChecked(); //ok
@@ -347,12 +323,13 @@ public class MainActivity extends AppCompatActivity {
         boolean has_bass_aceg_adbg_CheckBox = bass_aceg_adbg_CheckBox.isChecked(); //nope
 
         boolean has_Treble_egbdf_egbdf_CheckBox = treble_egbdf_egbdf_CheckBox.isChecked(); //ok
+        boolean has_Treble_egbdf_egbdf1_CheckBox = treble_egbdf_egbdf1_CheckBox.isChecked(); //ok
         boolean has_Treble_egbdf_ecfg_CheckBox = treble_egbdf_ecfg_CheckBox.isChecked(); //nope
         boolean has_Treble_egbdf__ed_CheckBox = treble_egbdf_ed_CheckBox.isChecked(); //nope
-        boolean has_Treble_egbdf_gbdfa_CheckBox = treble_egbdf_gbdfa_CheckBox.isChecked(); //nope
+
 
         if ( has_Bass_aceg_aceg_CheckBox || has_Bass_aceg_aceg2_CheckBox || has_bass_aceg_face_CheckBox || has_bass_aceg_adbg_CheckBox ||
-                has_Treble_egbdf_egbdf_CheckBox || has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox || has_Treble_egbdf_gbdfa_CheckBox ) {
+                has_Treble_egbdf_egbdf_CheckBox || has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox || has_Treble_egbdf_egbdf1_CheckBox ) {
 
 
             if ( has_bass_aceg_face_CheckBox || has_bass_aceg_adbg_CheckBox )
@@ -364,11 +341,13 @@ public class MainActivity extends AppCompatActivity {
                     BassCheckBox = question + "7: 2/2\n";
             }
 
-            if ( has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox || has_Treble_egbdf_gbdfa_CheckBox )
-                TrebleCheckBox =  question + "8: 0/1\n";
+            if ( has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox )
+                TrebleCheckBox =  question + "8: 0/2\n";
             else {
-                TrebleCheckBox = has_Treble_egbdf_egbdf_CheckBox ? question + "8: 1/1\n": question + "8: 0/1\n";
-                points +=  ( has_Treble_egbdf_egbdf_CheckBox ? 1 : 0 );
+                TrebleCheckBox = has_Treble_egbdf_egbdf_CheckBox || has_Treble_egbdf_egbdf1_CheckBox ? question + "8: 1/2\n": question + "8: 0/2\n";
+                points +=  ( has_Treble_egbdf_egbdf_CheckBox ? 1 : 0 ) + ( has_Treble_egbdf_egbdf1_CheckBox ? 1 : 0 );
+                if (has_Treble_egbdf_egbdf_CheckBox && has_Treble_egbdf_egbdf1_CheckBox)
+                    TrebleCheckBox = question + "8: 2/2\n";
             }
 
         }
@@ -584,14 +563,28 @@ public class MainActivity extends AppCompatActivity {
 
     public String summary(){
 
+        String userExtraPoint = extraTask.getText().toString();
+
+
+
         if (!alreadyCounted) {
             collectDataFromCheckBoxes();
+
+            whatIsChecked += name + getName() + "\n\n";
+
+            //treble clef extra point
+            if (userExtraPoint.equals("treble clef")){
+                points++;
+                whatIsChecked += extraPoint;
+            }
+            else
+                whatIsChecked += "there is no extra point\n";
 
             double percentage = ((double) points / maxPoints)*100;
             String formattedPercentage = String.format("%.2f", percentage);
             //String formattedDouble = new DecimalFormat("#0.00").format(0.1321231);
 
-            whatIsChecked += (name + getName() + "\n\n" + treble_clef_quiz_result + bass_clef_quiz_result +
+            whatIsChecked +=  (treble_clef_quiz_result + bass_clef_quiz_result +
                     treble_clef_a_quiz_result + treble_clef_f_quiz_result + bass_clef_g_quiz_result + bass_clef_d_quiz_result +
                     BassCheckBox + TrebleCheckBox +
                     major_quiz_result + minor_quiz_result + major_and_minor_quiz_result +
@@ -604,8 +597,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void displayWhatIsChecked(View v) {
-        display(summary());
-        //resetAll();
+        collectDataFromCheckBoxes();
+
+        double percentage = ((double) points / maxPoints)*100;
+        String formattedPercentage = String.format("%.2f", percentage);
+
+        whatIsChecked += (name + getName() + "\n\n" + treble_clef_quiz_result + bass_clef_quiz_result +
+                treble_clef_a_quiz_result + treble_clef_f_quiz_result + bass_clef_g_quiz_result + bass_clef_d_quiz_result +
+                BassCheckBox + TrebleCheckBox +
+                major_quiz_result + minor_quiz_result + major_and_minor_quiz_result +
+                userPoints + points + MaxQuizPoints + maxPoints + "\n" + formattedPercentage + "%");
+
+        display(whatIsChecked);
+        resetAll();
     }
 
     public void resetWhatIsChecked(View v) {
@@ -638,12 +642,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resetAll(){
-        //whatIsChecked = "";
-        //whatIsChecked =  "";
 
-/*        treble_clef_quiz_result = bass_clef_quiz_result =
-        treble_clef_a_quiz_result = treble_clef_f_quiz_result = bass_clef_g_quiz_result = bass_clef_d_quiz_result =
-        BassCheckBox = TrebleCheckBox = "";*/
+
+        RadioGroup question1  =  findViewById(R.id.Treble_Clef_r_btns);
+        RadioGroup question2  =  findViewById(R.id.Bass_Clef_r_btns);
+        RadioGroup question3  =  findViewById(R.id.Treble_Clef_a_RadioGroup);
+        RadioGroup question4  =  findViewById(R.id.Treble_Clef_f_RadioGroup);
+        RadioGroup question5  =  findViewById(R.id.Bass_Clef_g_RadioGroup);
+        RadioGroup question6  =  findViewById(R.id.Bass_Clef_d_RadioGroup);
+        RadioGroup question9  =  findViewById(R.id.majorRadioGroup);
+        RadioGroup question10 =  findViewById(R.id.minorRadioGroup);
+        RadioGroup question11 =  findViewById(R.id.major_and_minor_RadioGroup);
+
+        //clear all radio buttons
+        question1.clearCheck();
+        question2.clearCheck();
+        question3.clearCheck();
+        question4.clearCheck();
+        question5.clearCheck();
+        question6.clearCheck();
+        question9.clearCheck();
+        question10.clearCheck();
+        question11.clearCheck();
 
         whatIsChecked =  getString(R.string.Summary);
         treble_clef_quiz_result = getString(R.string.Question_1_default) ;
@@ -661,9 +681,6 @@ public class MainActivity extends AppCompatActivity {
 
         alreadyCounted = false;
 
-        //clear all radio buttons
-        // radioGroup_Treble_Clef_btns.clearCheck();
     }
-
 
 }
