@@ -1,5 +1,6 @@
 package com.example.android.quizbasicsofmusicnotation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             major_quiz_result , minor_quiz_result, major_and_minor_quiz_result,
             name, userPoints, MaxQuizPoints,
             mailTo, emailSubject;
+    String correctAnswer;
 
     byte points = 0;
     byte maxPoints = 14;
@@ -79,12 +81,6 @@ public class MainActivity extends AppCompatActivity {
         userPoints = getString(R.string.userPoints);
         MaxQuizPoints = getString(R.string.MaxPoints);
 
-        //mailTo = getString(R.string.mailto);
-        //emailSubject = getString(R.string.emailSubject);
-
-
-
-
         mPlayer=MediaPlayer.create(this, R.raw.major_sound);
         mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -93,21 +89,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         mPlayerMinor=MediaPlayer.create(this, R.raw.minor_sound);
         mPlayerMinor.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {stopPlayMinor();}
         });
 
-
         mPlayerMajorAndMinor=MediaPlayer.create(this, R.raw.major_and_minor_sound);
         mPlayerMajorAndMinor.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {stopPlayMajorAndMinor();}
         });
-
-
 
         startButton = (Button) findViewById(R.id.start_major);
         pauseButton = (Button) findViewById(R.id.pause_major);
@@ -120,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
         startButtonMajorAndMinor = (Button) findViewById(R.id.start_major_and_minor);
         pauseButtonMajorAndMinor = (Button) findViewById(R.id.pause_major_and_minor);
         stopButtonMajorAndMinor = (Button) findViewById(R.id.stop_major_and_minor);
-
-
 
         pauseButton.setEnabled(false);
         stopButton.setEnabled(false);
@@ -146,13 +136,9 @@ public class MainActivity extends AppCompatActivity {
         extraTask = (EditText)findViewById(R.id.extra_task);
 
         result = (TextView) findViewById(R.id.result);
-
-
     }
 
-
  /* /////////////   Begin of the methods   ///////////////// */
-
 
     public void treble_clef_quiz(View view) {
         // Is the button now checked?
@@ -173,7 +159,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void bass_clef_quiz(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -192,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
                 } break;
         }
     }
-
 
     public void treble_clef_a_quiz(View view) {
         // Is the button now checked?
@@ -224,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void treble_clef_f_quiz(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -253,7 +236,6 @@ public class MainActivity extends AppCompatActivity {
                 } break;
         }
     }
-
 
     public void bass_clef_g_quiz(View view) {
         // Is the button now checked?
@@ -284,7 +266,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void bass_clef_d_quiz(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -314,7 +295,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void collectDataFromCheckBoxes(){
 
         boolean has_Bass_aceg_aceg_CheckBox = bass_aceg_aceg_CheckBox.isChecked(); //ok
@@ -326,7 +306,6 @@ public class MainActivity extends AppCompatActivity {
         boolean has_Treble_egbdf_egbdf1_CheckBox = treble_egbdf_egbdf1_CheckBox.isChecked(); //ok
         boolean has_Treble_egbdf_ecfg_CheckBox = treble_egbdf_ecfg_CheckBox.isChecked(); //nope
         boolean has_Treble_egbdf__ed_CheckBox = treble_egbdf_ed_CheckBox.isChecked(); //nope
-
 
         if ( has_Bass_aceg_aceg_CheckBox || has_Bass_aceg_aceg2_CheckBox || has_bass_aceg_face_CheckBox || has_bass_aceg_adbg_CheckBox ||
                 has_Treble_egbdf_egbdf_CheckBox || has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox || has_Treble_egbdf_egbdf1_CheckBox ) {
@@ -349,16 +328,8 @@ public class MainActivity extends AppCompatActivity {
                 if (has_Treble_egbdf_egbdf_CheckBox && has_Treble_egbdf_egbdf1_CheckBox)
                     TrebleCheckBox = question + "8: 2/2\n";
             }
-
         }
-
-
-
-        //if (has_Bass_aceg_aceg_CheckBox || has_Bass_aceg_aceg2_CheckBox || has_Treble_egbdf_egbdf_CheckBox ) {
-        //if ( !(has_bass_aceg_face_CheckBox || has_bass_aceg_adbg_CheckBox || has_Treble_egbdf_ecfg_CheckBox || has_Treble_egbdf__ed_CheckBox || has_Treble_egbdf_gbdfa_CheckBox)  ) {
-
     }
-
 
     public void major_quiz(View view) {
         // Is the button now checked?
@@ -379,7 +350,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void minor_quiz(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -398,7 +368,6 @@ public class MainActivity extends AppCompatActivity {
                 } break;
         }
     }
-
 
     public void major_and_minor_quiz(View view) {
         // Is the button now checked?
@@ -419,12 +388,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     /* ///////////sound code//////////////// */
-
-
 
     private void stopPlay(){
         mPlayer.stop();
@@ -474,14 +438,12 @@ public class MainActivity extends AppCompatActivity {
     /* ////////////////////////////// */
 
     public void play_major(View view){
-
         mPlayer.start();
         startButton.setEnabled(false);
         pauseButton.setEnabled(true);
         stopButton.setEnabled(true);
     }
     public void pause_major(View view){
-
         mPlayer.pause();
         startButton.setEnabled(true);
         pauseButton.setEnabled(false);
@@ -490,8 +452,6 @@ public class MainActivity extends AppCompatActivity {
     public void stop_major(View view){
         stopPlay();
     }
-
-
 
 /* ////////////////////////////// */
 
@@ -533,8 +493,6 @@ public class MainActivity extends AppCompatActivity {
         stopPlayMajorAndMinor();
     }
 
-
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -549,23 +507,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
     /* ///////////end of sound code//////////////// */
 
     public String getName(){
-        //EditText nameField = (EditText)findViewById(R.id.name_field);
         return nameField.getText().toString(); //return editable object, then method toString() makes it String type (chaining method calls);
     }
 
-
-
-
     public String summary(){
-
+        correctAnswer = "treble clef";
         String userExtraPoint = extraTask.getText().toString();
 
-
+        boolean isEditTextTrue = correctAnswer.equals(userExtraPoint);
 
         if (!alreadyCounted) {
             collectDataFromCheckBoxes();
@@ -573,7 +525,7 @@ public class MainActivity extends AppCompatActivity {
             whatIsChecked += name + getName() + "\n\n";
 
             //treble clef extra point
-            if (userExtraPoint.equals("treble clef")){
+            if (isEditTextTrue){
                 points++;
                 whatIsChecked += extraPoint;
             }
@@ -582,7 +534,6 @@ public class MainActivity extends AppCompatActivity {
 
             double percentage = ((double) points / maxPoints)*100;
             String formattedPercentage = String.format("%.2f", percentage);
-            //String formattedDouble = new DecimalFormat("#0.00").format(0.1321231);
 
             whatIsChecked +=  (treble_clef_quiz_result + bass_clef_quiz_result +
                     treble_clef_a_quiz_result + treble_clef_f_quiz_result + bass_clef_g_quiz_result + bass_clef_d_quiz_result +
@@ -595,12 +546,12 @@ public class MainActivity extends AppCompatActivity {
         return whatIsChecked;
     }
 
-
     public void displayWhatIsChecked(View v) {
         collectDataFromCheckBoxes();
 
         double percentage = ((double) points / maxPoints)*100;
         String formattedPercentage = String.format("%.2f", percentage);
+        String score = "your score is " + formattedPercentage + "%!";
 
         whatIsChecked += (name + getName() + "\n\n" + treble_clef_quiz_result + bass_clef_quiz_result +
                 treble_clef_a_quiz_result + treble_clef_f_quiz_result + bass_clef_g_quiz_result + bass_clef_d_quiz_result +
@@ -609,6 +560,13 @@ public class MainActivity extends AppCompatActivity {
                 userPoints + points + MaxQuizPoints + maxPoints + "\n" + formattedPercentage + "%");
 
         display(whatIsChecked);
+        Context context = getApplicationContext();
+        CharSequence text = score;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
         resetAll();
     }
 
@@ -620,14 +578,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void send_via_email (View v){
-        //String name = getName();
-        //Music Notation Quiz results for
-        //mailto
-
         //open mail
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:")); // only email apps should handle this
-        //intent.putExtra(Intent.EXTRA_EMAIL, addresses); //addresses - a String[] holding e-mail addresses that should be delivered to.
         intent.putExtra(Intent.EXTRA_SUBJECT, "Music Notation Quiz results for " + getName()); //email SUBJECT
         intent.putExtra(Intent.EXTRA_TEXT, summary()); //email body
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -635,14 +588,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void display(String s) {
         //TextView result = (TextView) findViewById(R.id.result);
         result.setText(String.valueOf(s));
     }
 
     public void resetAll(){
-
 
         RadioGroup question1  =  findViewById(R.id.Treble_Clef_r_btns);
         RadioGroup question2  =  findViewById(R.id.Bass_Clef_r_btns);
@@ -680,7 +631,5 @@ public class MainActivity extends AppCompatActivity {
         points = 0;
 
         alreadyCounted = false;
-
     }
-
 }
