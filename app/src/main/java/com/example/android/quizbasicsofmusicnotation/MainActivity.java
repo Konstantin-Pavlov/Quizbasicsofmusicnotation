@@ -515,7 +515,8 @@ public class MainActivity extends AppCompatActivity {
 
     public String summary(){
         correctAnswer = "treble clef";
-        String userExtraPoint = extraTask.getText().toString();
+        //added trim() method in order to remove any trailing spaces the user may have entered on accident.
+        String userExtraPoint = extraTask.getText().toString().trim();
 
         boolean isEditTextTrue = correctAnswer.equals(userExtraPoint);
 
