@@ -15,6 +15,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//problems if user wants to update his answers, not reset them
+
 public class MainActivity extends AppCompatActivity {
 
     //declaration of string variables
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
             question,
             whatIsChecked,
             extraPoint,
+            noExtraPoint,
+            toastScore,
             treble_clef_quiz_result, bass_clef_quiz_result,
             treble_clef_a_quiz_result, treble_clef_f_quiz_result ,
             bass_clef_g_quiz_result , bass_clef_d_quiz_result,
@@ -66,10 +70,13 @@ public class MainActivity extends AppCompatActivity {
         question = getString(R.string.Question);
         whatIsChecked =  getString(R.string.Summary);
         extraPoint = getString(R.string.extra_point);
+        noExtraPoint = getString(R.string.no_extra_point);
+        toastScore = getString(R.string.toast_score);
         treble_clef_quiz_result = getString(R.string.Question_1_default) ;
         bass_clef_quiz_result = getString(R.string.Question_2_default) ;
         treble_clef_a_quiz_result = getString(R.string.Question_3_default);
         treble_clef_f_quiz_result = getString(R.string.Question_4_default);
+        bass_clef_g_quiz_result = getString(R.string.Question_5_default); //bug fix: added Question 5 default value
         bass_clef_d_quiz_result = getString(R.string.Question_6_default);
         BassCheckBox = getString(R.string.Question_7_default);
         TrebleCheckBox = getString(R.string.Question_8_default);
@@ -523,7 +530,7 @@ public class MainActivity extends AppCompatActivity {
         if (!alreadyCounted) {
             collectDataFromCheckBoxes();
 
-            whatIsChecked += name + getName() + "\n\n";
+            whatIsChecked += name + " " + getName() + "\n\n";
 
             //treble clef extra point
             if (isEditTextTrue){
@@ -547,18 +554,32 @@ public class MainActivity extends AppCompatActivity {
         return whatIsChecked;
     }
 
+
     public void displayWhatIsChecked(View v) {
         collectDataFromCheckBoxes();
 
+        correctAnswer = "treble clef";
+        //added trim() method in order to remove any trailing spaces the user may have entered on accident.
+        String userExtraPoint = extraTask.getText().toString().trim();
+        boolean isEditTextTrue = correctAnswer.equals(userExtraPoint);
+        whatIsChecked += name + " " + getName() + "\n\n";
+        //treble clef extra point
+        if (isEditTextTrue){
+            points++;
+            whatIsChecked += extraPoint;
+        }
+        else
+            whatIsChecked += noExtraPoint;
+
         double percentage = ((double) points / maxPoints)*100;
         String formattedPercentage = String.format("%.2f", percentage);
-        String score = "your score is " + formattedPercentage + "%!";
+        String score = toastScore + " " + formattedPercentage + "%!";
 
-        whatIsChecked += (name + getName() + "\n\n" + treble_clef_quiz_result + bass_clef_quiz_result +
+        whatIsChecked += (treble_clef_quiz_result + bass_clef_quiz_result +
                 treble_clef_a_quiz_result + treble_clef_f_quiz_result + bass_clef_g_quiz_result + bass_clef_d_quiz_result +
                 BassCheckBox + TrebleCheckBox +
                 major_quiz_result + minor_quiz_result + major_and_minor_quiz_result +
-                userPoints + points + MaxQuizPoints + maxPoints + "\n" + formattedPercentage + "%");
+                userPoints + " " + points + MaxQuizPoints + " " + maxPoints + "\n" + formattedPercentage + "%");
 
         display(whatIsChecked);
         Context context = getApplicationContext();
@@ -578,6 +599,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public void send_via_email (View v){
         //open mail
         Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -587,6 +609,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
+        resetAll();
     }
 
     public void display(String s) {
@@ -622,6 +645,7 @@ public class MainActivity extends AppCompatActivity {
         bass_clef_quiz_result = getString(R.string.Question_2_default) ;
         treble_clef_a_quiz_result = getString(R.string.Question_3_default);
         treble_clef_f_quiz_result = getString(R.string.Question_4_default);
+        bass_clef_g_quiz_result = getString(R.string.Question_5_default);
         bass_clef_d_quiz_result = getString(R.string.Question_6_default);
         BassCheckBox = getString(R.string.Question_7_default);
         TrebleCheckBox = getString(R.string.Question_8_default);

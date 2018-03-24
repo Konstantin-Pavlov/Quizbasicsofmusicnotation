@@ -3,8 +3,6 @@
     <string name="introduction">Hello!\nHere is  some basic information about music notation.\nThis is how notes are written in the treble clef:</string>
     <string name="introduction_bass_clef">And there is the bass clef:</string>
     <string name="quiz_time">Now it\'s time for the quiz!\nLet\'s find out if you can recognize some notes :)</string>
-    <string name="extra_task">You can type here the right answer to get an extra point!</string>
-    <string name="extra_point">extra point added!</string>
     <string name="bass_clef">bass clef</string>
     <string name="treble_clef">treble clef</string>
     <string name="pick_all_correct">Please, choose all correct answers.</string>
@@ -42,6 +40,11 @@
     <string name="Name">Name: </string>
     <string name="userPoints">Points: </string>
     <string name="MaxPoints">\nMaxPoints: </string>
+    <string name="extra_task">You can type here the right answer to get an extra point!</string>
+    <string name="extra_point">extra point added!\n</string>
+    <string name="no_extra_point">there is no extra point :(\n</string>
+    <string name="toast_score">"your score is </string>
+
     <string name="mailto">mailto</string>
     <string name="emailSubject">Music Notation Quiz results for </string>
 
