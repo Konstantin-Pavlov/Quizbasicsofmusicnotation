@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     boolean alreadyCounted = false;
 
+    double toastPercentage = 0;
+
     MediaPlayer mPlayer;
     MediaPlayer mPlayerMinor;
     MediaPlayer mPlayerMajorAndMinor;
@@ -520,15 +522,33 @@ public class MainActivity extends AppCompatActivity {
         return nameField.getText().toString(); //return editable object, then method toString() makes it String type (chaining method calls);
     }
 
-    public String summary(){
-        correctAnswer = "treble clef";
-        //added trim() method in order to remove any trailing spaces the user may have entered on accident.
-        String userExtraPoint = extraTask.getText().toString().trim();
+    public void showToastMessage(){
 
-        boolean isEditTextTrue = correctAnswer.equals(userExtraPoint);
+        if (!alreadyCounted) {
+            double percentage = ((double) points / maxPoints) * 100;
+            toastPercentage = percentage;
+            alreadyCounted = true;
+        }
+
+        String formattedPercentage = String.format("%.2f", toastPercentage);
+        String score = toastScore + " " + formattedPercentage + "%!";
+        Context context = getApplicationContext();
+        CharSequence text = score;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    public String summary(){
 
         if (!alreadyCounted) {
             collectDataFromCheckBoxes();
+
+            correctAnswer = "treble clef";
+            //added trim() method in order to remove any trailing spaces the user may have entered on accident.
+            String userExtraPoint = extraTask.getText().toString().toLowerCase().trim();
+
+            boolean isEditTextTrue = correctAnswer.equals(userExtraPoint);
 
             whatIsChecked += name + " " + getName() + "\n\n";
 
@@ -548,7 +568,7 @@ public class MainActivity extends AppCompatActivity {
                     BassCheckBox + TrebleCheckBox +
                     major_quiz_result + minor_quiz_result + major_and_minor_quiz_result +
                     userPoints + points + MaxQuizPoints + maxPoints + "\n" + formattedPercentage + "%");
-            alreadyCounted = true;
+
         }
 
         return whatIsChecked;
@@ -556,13 +576,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void displayWhatIsChecked(View v) {
-        collectDataFromCheckBoxes();
 
+        display(summary());
+        showToastMessage();
+
+
+        /*
+        collectDataFromCheckBoxes();
         correctAnswer = "treble clef";
         //added trim() method in order to remove any trailing spaces the user may have entered on accident.
         String userExtraPoint = extraTask.getText().toString().trim();
         boolean isEditTextTrue = correctAnswer.equals(userExtraPoint);
         whatIsChecked += name + " " + getName() + "\n\n";
+
         //treble clef extra point
         if (isEditTextTrue){
             points++;
@@ -582,6 +608,7 @@ public class MainActivity extends AppCompatActivity {
                 userPoints + " " + points + MaxQuizPoints + " " + maxPoints + "\n" + formattedPercentage + "%");
 
         display(whatIsChecked);
+
         Context context = getApplicationContext();
         CharSequence text = score;
         int duration = Toast.LENGTH_SHORT;
@@ -590,6 +617,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
 
         resetAll();
+        */
     }
 
     public void resetWhatIsChecked(View v) {
@@ -609,7 +637,6 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
-        resetAll();
     }
 
     public void display(String s) {
