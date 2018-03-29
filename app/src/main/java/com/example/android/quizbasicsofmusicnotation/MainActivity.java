@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
             BassCheckBox , TrebleCheckBox ,
             major_quiz_result , minor_quiz_result, major_and_minor_quiz_result,
             name, userPoints, MaxQuizPoints,
-            mailTo, emailSubject;
-    String correctAnswer;
+            mailTo, emailSubject,
+            correctAnswer;
 
     byte points = 0;
     byte maxPoints = 14;
@@ -681,6 +681,21 @@ public class MainActivity extends AppCompatActivity {
         major_and_minor_quiz_result = getString(R.string.Question_11_default);
 
         points = 0;
+
+        //reset the edittext
+        nameField.setText("");
+        extraTask.setText("");
+
+        //clear all checkboxes
+        bass_aceg_aceg_CheckBox.setChecked(false);
+        bass_aceg_aceg2_CheckBox.setChecked(false);
+        bass_aceg_face_CheckBox.setChecked(false);
+        bass_aceg_adbg_CheckBox.setChecked(false);
+
+        treble_egbdf_egbdf_CheckBox.setChecked(false);
+        treble_egbdf_ecfg_CheckBox.setChecked(false);
+        treble_egbdf_ed_CheckBox.setChecked(false);
+        treble_egbdf_egbdf1_CheckBox.setChecked(false);
 
         alreadyCounted = false;
     }
